@@ -1,7 +1,7 @@
 
 # Meli Frontend
 
-Este es el frontend del proyecto **Meli**, construido con [Next.js](https://nextjs.org/) y diseñado para ser ejecutado en un contenedor Docker, junto con una API que también se orquesta mediante Docker Compose.
+Este es el frontend del proyecto **Meli**, construido con [Next.js 14](https://nextjs.org/) (App Router) y diseñado para ser ejecutado en un contenedor Docker, junto con una API que también se orquesta mediante Docker Compose.
 
 ## Tabla de Contenidos
 

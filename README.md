@@ -10,8 +10,6 @@ Este es el frontend del proyecto **Meli**, construido con [Next.js](https://next
 - [Variables de Entorno](#variables-de-entorno)
 - [Ejecución en Desarrollo](#ejecución-en-desarrollo)
 - [Ejecución con Docker Compose](#ejecución-con-docker-compose)
-- [Construcción y Ejecución en Producción](#construcción-y-ejecución-en-producción)
-- [Contribución](#contribución)
 - [Licencia](#licencia)
 
 ## Requisitos Previos

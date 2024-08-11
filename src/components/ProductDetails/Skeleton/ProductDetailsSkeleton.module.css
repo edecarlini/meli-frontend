@@ -1,0 +1,119 @@
+.product-details-skeleton {
+  display: grid;
+  grid-template-columns: minmax(200px, 680px) auto;
+  gap: 16px;
+  margin: 0px 112px;
+  height: 100vh;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 32px;
+}
+
+.product-details-skeleton-image {
+  display: flex;
+  justify-content: center;
+  border-radius: 4px;
+  object-fit: contain;
+  width: auto;
+  height: auto;
+  background-color: #e0e0e0;
+  animation: slide 1.5s infinite ease-in-out;
+}
+
+.product-details-skeleton-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-details-skeleton-info-sold {
+  width: 150px;
+  height: 16px;
+  border-radius: 4px;
+  background-color: #e0e0e0;
+  animation: slide 1.5s infinite ease-in-out;
+}
+
+.product-details-skeleton-info-title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-details-skeleton-info-title-lines {
+  width: 200px;
+  height: 24px;
+  border-radius: 4px;
+  background-color: #e0e0e0;
+  animation: slide 1.5s infinite ease-in-out;
+}
+
+.product-details-skeleton-interaction {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 16px;
+}
+
+.product-details-skeleton-interaction-price {
+  width: 200px;
+  height: 46px;
+  background-color: #e0e0e0;
+  animation: slide 1.5s infinite ease-in-out;
+}
+
+.product-details-skeleton-interaction-button {
+  width: 200px;
+  height: 48px;
+  border-radius: 4px;
+  background-color: #e0e0e0;
+  animation: slide 1.5s infinite ease-in-out;
+}
+
+.product-details-skeleton-description {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.product-details-skeleton-description-title {
+  width: auto;
+  height: 24px;
+  border-radius: 4px;
+  background-color: #e0e0e0;
+  animation: slide 1.5s infinite ease-in-out;
+}
+
+.product-details-skeleton-description-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-details-skeleton-description-body-lines {
+  width: auto;
+  height: 16px;
+  background-color: #e0e0e0;
+  animation: slide 1.5s infinite ease-in-out;
+}
+
+@keyframes slide {
+  0% {
+    background-color: #e0e0e0;
+  }
+  50% {
+    background-color: #f0f0f0;
+  }
+  100% {
+    background-color: #e0e0e0;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-details-skeleton {
+    grid-template-columns: minmax(100px, 480px);
+  }
+  .product-details-skeleton-image {
+    height: 200px;
+  }
+}

@@ -1,0 +1,30 @@
+.skeleton-breadcrumb {
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  margin: 0 112px;
+}
+
+.skeleton-category-group {
+  width: 200px;
+  height: 16px;
+  animation: slide 1.5s infinite ease-in-out;
+}
+
+.skeleton-category-main {
+  width: 100px;
+  height: 16px;
+  animation: slide 1.5s infinite ease-in-out;
+}
+
+@keyframes slide {
+  0% {
+    background-color: #e0e0e0;
+  }
+  50% {
+    background-color: #f0f0f0;
+  }
+  100% {
+    background-color: #e0e0e0;
+  }
+}

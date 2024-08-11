@@ -1,0 +1,7 @@
+.results-products-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 16px 0;
+  border-radius: 4px;
+  gap: 16px;
+}

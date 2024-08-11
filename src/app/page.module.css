@@ -1,0 +1,19 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 128px;
+  min-height: 100vh;
+}
+
+@media (prefers-color-scheme: dark) {
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}

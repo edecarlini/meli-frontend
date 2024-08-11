@@ -1,0 +1,67 @@
+.skeleton-product {
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  border-radius: 4px;
+  background-color: #fff;
+  margin: 0 112px;
+  gap: 16px;
+}
+
+.skeleton-info {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 32px;
+}
+
+.skeleton-image {
+  width: 180px;
+  height: 180px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  animation: slide 1.5s infinite ease-in-out;
+}
+
+.skeleton-price {
+  width: 120px;
+  height: 24px;
+}
+
+.skeleton-title {
+  width: 100%;
+  height: 30px;
+}
+
+.skeleton-title,
+.skeleton-price {
+  background-color: #e0e0e0;
+  margin-bottom: 8px;
+  animation: slide 1.5s infinite ease-in-out;
+}
+
+.skeleton-location-container {
+  display: flex;
+  justify-content: end;
+  width: 200px;
+}
+
+.skeleton-location {
+  width: 100px;
+  height: 16px;
+  background-color: #e0e0e0;
+  animation: slide 1.5s infinite ease-in-out;
+}
+
+@keyframes slide {
+  0% {
+    background-color: #e0e0e0;
+  }
+  50% {
+    background-color: #f0f0f0;
+  }
+  100% {
+    background-color: #e0e0e0;
+  }
+}

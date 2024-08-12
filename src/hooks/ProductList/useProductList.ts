@@ -1,35 +1,25 @@
 import axios from 'axios';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
-import {
-  Product,
-  ProductListResponse,
-} from './interfaces/useProductList.interface';
+import useSWR from 'swr';
+import { ProductListResponse } from './interfaces/useProductList.interface';
+
+const fetcher = (url: string) =>
+  axios.get<ProductListResponse>(url).then((res) => res.data);
 
 const useProductList = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [categories, setCategories] = useState<string[]>([]);
-  const [loading, setLoading] = useState<Boolean>(true);
-  const [error, setError] = useState<string>();
-  const [page, setPage] = useState(1);
   const router = useRouter();
   const searchParams = useSearchParams();
   const search = searchParams.get('search');
 
-  const fetchProducts = useCallback(async () => {
-    try {
-      const response = await axios.get<ProductListResponse>(
-        `${process.env.NEXT_PUBLIC_API_URL}/items`,
-        { params: { q: search, page } }
-      );
-      setProducts(response.data.items);
-      setCategories(response.data.categories);
-      setLoading(false);
-    } catch (error) {
-      setError(`Error fetching products: ${error}`);
-      setLoading(false);
+  const { data, error, isLoading } = useSWR(
+    () =>
+      search ? `${process.env.NEXT_PUBLIC_API_URL}/items?q=${search}` : null,
+    fetcher,
+    {
+      revalidateOnFocus: false,
+      dedupingInterval: 60000,
     }
-  }, [search, page]);
+  );
 
   const handleSelectProduct = (
     productId: string,
@@ -38,7 +28,6 @@ const useProductList = () => {
   ) => {
     if (productId) {
       router.push(`/items/${productId}`);
-
       document.cookie = `productTitle=${encodeURIComponent(
         productTitle
       )}; path=/; max-age=3600`;
@@ -46,23 +35,11 @@ const useProductList = () => {
     }
   };
 
-  const loadMore = () => {
-    setPage((prev) => prev + 1);
-  };
-
-  useEffect(() => {
-    if (search) {
-      fetchProducts();
-    }
-  }, [search, page, fetchProducts]);
-
   return {
-    products,
-    categories,
-    page,
+    products: data?.items || [],
+    categories: data?.categories || [],
     handleSelectProduct,
-    loadMore,
-    loading,
+    loading: isLoading,
     error,
   };
 };

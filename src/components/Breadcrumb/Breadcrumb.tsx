@@ -1,7 +1,16 @@
+'use client';
+
 import Image from 'next/image';
 import styles from './Breadcrumb.module.css';
 import { BreadcrumbProps } from './interfaces/BreadcrumbProps';
+import { useRouter } from 'next/navigation';
 export const Breadcrumb = ({ path }: BreadcrumbProps) => {
+  const router = useRouter();
+
+  const handleClickRedirect = (itemPath: string) => {
+    router.push(`/items?search=${itemPath}`);
+  };
+
   return (
     <section className={styles['ui-search-breadcrumb']}>
       <div className={styles['search-breadcrumb']}>
@@ -14,12 +23,12 @@ export const Breadcrumb = ({ path }: BreadcrumbProps) => {
                 key={`${item}-${index}`}
               >
                 <a
-                  href='#'
                   className={
                     isLastItem
                       ? styles['breadcrumb-link-active']
                       : styles['breadcrumb-link']
                   }
+                  onClick={() => handleClickRedirect(item)}
                 >
                   {item}
                 </a>

@@ -30,8 +30,8 @@ const useProductList = () => {
       router.push(`/items/${productId}`);
       document.cookie = `productTitle=${encodeURIComponent(
         productTitle
-      )}; path=/; max-age=3600`;
-      document.cookie = `productFreeShipping=${productFreeShipping}; path=/; max-age=3600`;
+      )}; path=/; max-age=3600; SameSite=Lax`;
+      document.cookie = `productFreeShipping=${productFreeShipping}; path=/; max-age=3600; SameSite=Lax`;
     }
   };
 

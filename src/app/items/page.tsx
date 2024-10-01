@@ -1,5 +1,9 @@
 import { Metadata } from 'next';
 import SearchResults from '../../components/SearchResults/SearchResults';
+import { Suspense } from 'react';
+import BreadcrumbSkeleton from '@/components/Breadcrumb/Skeleton/BreadcrumbSkeleton';
+import SearchResultsSkeleton from '@/components/SearchResults/Skeleton/SearchResultsSkeleton';
+import styles from '@/components/SearchResults/SearchResults.module.css';
 
 type searchParamsType = {
   search: string;
@@ -25,7 +29,18 @@ export async function generateMetadata({
 }
 
 const SearchResultsPage = () => {
-  return <SearchResults />;
+  return (
+    <Suspense
+      fallback={
+        <div className={styles['results-products-container']}>
+          <BreadcrumbSkeleton />
+          <SearchResultsSkeleton count={4} />
+        </div>
+      }
+    >
+      <SearchResults />
+    </Suspense>
+  );
 };
 
 export default SearchResultsPage;

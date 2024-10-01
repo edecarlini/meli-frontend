@@ -37,6 +37,11 @@
   font-weight: 600;
 }
 
+.breadcrumb-link,
+.breadcrumb-link-active {
+  cursor: pointer;
+}
+
 .breadcrumb-chevron {
   display: inline;
   float: none;

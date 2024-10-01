@@ -16,8 +16,9 @@
   max-height: 680px;
 }
 
-.product-details-image-container img {
+.product-details-image {
   max-width: 100%;
+  width: auto;
   height: auto;
   object-fit: contain;
   border-radius: 4px;

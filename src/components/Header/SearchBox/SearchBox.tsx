@@ -1,19 +1,24 @@
 'use client';
 
-import React, { useState, useRef, useEffect, useCallback } from 'react';
-import Image from 'next/image';
-import styles from './SearchBox.module.css';
 import useSearchHistory from '@/hooks/SearchHistory/useSearchHistory';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import styles from './SearchBox.module.css';
 import { SearchBoxProps } from './interfaces/SearchBox.interface';
+import { useSearchInputContext } from '@/context/SearchInput/SearchInputProvider';
+import useClickOutside from '@/hooks/SearchHistory/useClickOutside';
 
 const SearchBox = ({ placeholder }: SearchBoxProps) => {
   const router = useRouter();
   const { history, addSearchTerm } = useSearchHistory(6);
+  const { clearSearchInput } = useSearchInputContext();
   const [searchTerm, setSearchTerm] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [suggestionSelected, setSuggestionSelected] = useState(false);
   const searchBoxRef = useRef<HTMLDivElement>(null);
+
+  useClickOutside(searchBoxRef, () => setShowSuggestions(false));
 
   const handleSearch = useCallback(() => {
     if (searchTerm?.trim() !== '') {
@@ -52,15 +57,6 @@ const SearchBox = ({ placeholder }: SearchBoxProps) => {
     }
   };
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      searchBoxRef.current &&
-      !searchBoxRef.current.contains(event.target as Node)
-    ) {
-      setShowSuggestions(false);
-    }
-  };
-
   const handleSelectSuggestion = (suggestion: string) => {
     setSearchTerm(suggestion);
     setSuggestionSelected(true);
@@ -73,11 +69,8 @@ const SearchBox = ({ placeholder }: SearchBoxProps) => {
   }, [suggestionSelected]);
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
+    setSearchTerm('');
+  }, [clearSearchInput]);
 
   return (
     <div ref={searchBoxRef} className={styles.searchBox}>

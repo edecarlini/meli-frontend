@@ -1,3 +1,4 @@
+import { SearchInputProvider } from '@/context/SearchInput/SearchInputProvider';
 import { Metadata } from 'next';
 import { ReactNode } from 'react';
 import Header from '../components/Header/Header';
@@ -24,8 +25,10 @@ const Layout = ({ children }: LayoutProps) => {
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
       </head>
       <body>
-        <Header searchPlaceholder='Nunca dejes de buscar' />
-        <main>{children}</main>
+        <SearchInputProvider>
+          <Header searchPlaceholder='Nunca dejes de buscar' />
+          <main>{children}</main>
+        </SearchInputProvider>
       </body>
     </html>
   );

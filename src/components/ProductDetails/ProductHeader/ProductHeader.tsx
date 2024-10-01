@@ -21,7 +21,7 @@ const ProductHeader = ({
           width={680}
           height={680}
           quality={100}
-          layout='responsive'
+          className={styles['product-details-image']}
         />
       </div>
       <div className={styles['product-details-info']}>

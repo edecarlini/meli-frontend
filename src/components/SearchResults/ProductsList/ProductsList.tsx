@@ -2,6 +2,8 @@ import Image from 'next/image';
 import { IProductList } from './interfaces/ProductsList.interface';
 import styles from './ProductsList.module.css';
 import Price from '../../Price/Price';
+import Link from 'next/link';
+import useProductList from '@/hooks/ProductList/useProductList';
 
 const ProductsList = ({
   id,
@@ -10,10 +12,11 @@ const ProductsList = ({
   price,
   free_shipping,
   city,
-  handleSelectProduct,
 }: IProductList) => {
+  const { handleSelectProduct } = useProductList();
   return (
-    <div
+    <Link
+      href={`/items/${id}`}
       key={id}
       className={styles['result-product']}
       onClick={() => handleSelectProduct(id, title, free_shipping)}
@@ -24,7 +27,6 @@ const ProductsList = ({
         width={180}
         height={180}
         quality={100}
-        layout='responsive'
         className={styles['result-product-picture']}
       />
       <div className={styles['result-product-info']}>
@@ -47,7 +49,7 @@ const ProductsList = ({
       <div className={styles['result-product-location-container']}>
         <span className={styles['result-product-location']}>{city}</span>
       </div>
-    </div>
+    </Link>
   );
 };
 

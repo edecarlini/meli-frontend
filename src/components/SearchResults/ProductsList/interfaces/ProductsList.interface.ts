@@ -10,9 +10,9 @@ export interface IProductList {
   price: priceType;
   free_shipping: boolean;
   city: string;
-  handleSelectProduct: (
-    id: string,
-    title: string,
-    free_shipping: boolean
-  ) => void;
+  // handleSelectProduct: (
+  //   id: string,
+  //   title: string,
+  //   free_shipping: boolean
+  // ) => void;
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { Product } from '@/hooks/ProductList/interfaces/useProductList.interface';
+import { Product } from '@/hooks/ProductList/interfaces/getProductList.interface';
 import { Breadcrumb } from '../Breadcrumb/Breadcrumb';
 import ProductsList from './ProductsList/ProductsList';
 import styles from './SearchResults.module.css';

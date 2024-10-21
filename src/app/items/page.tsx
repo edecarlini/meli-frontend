@@ -1,4 +1,4 @@
-import getProductList from '@/hooks/ProductList/useProductList';
+import getProductList from '@/hooks/ProductList/getProductList';
 import { Metadata } from 'next';
 import SearchResults from '../../components/SearchResults/SearchResults';
 

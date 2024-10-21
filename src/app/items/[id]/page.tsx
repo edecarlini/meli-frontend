@@ -1,5 +1,5 @@
 import ProductDetails from '@/components/ProductDetails/ProductDetails';
-import getProductDetails from '@/hooks/ProductDetails/useProductDetails';
+import getProductDetails from '@/hooks/ProductDetails/getProductDetails';
 import { Metadata } from 'next';
 import { cookies } from 'next/headers';
 

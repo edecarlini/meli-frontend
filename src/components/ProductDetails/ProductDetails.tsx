@@ -2,7 +2,7 @@ import { Breadcrumb } from '@/components/Breadcrumb/Breadcrumb';
 import ProductDescription from './ProductDescription/ProductDescription';
 import styles from './ProductDetails.module.css';
 import ProductHeader from './ProductHeader/ProductHeader';
-import { Product } from '@/hooks/ProductDetails/interfaces/useProductDetails.interface';
+import { Product } from '@/hooks/ProductDetails/interfaces/getProductDetails.interface';
 
 export interface ProductDetailsProps {
   product: Product;

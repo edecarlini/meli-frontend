@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ProductListResponse } from './interfaces/useProductList.interface';
+import { ProductListResponse } from './interfaces/getProductList.interface';
 
 const getProductList = async (
   search?: string

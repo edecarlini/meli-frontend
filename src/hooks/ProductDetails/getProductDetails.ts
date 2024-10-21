@@ -1,7 +1,5 @@
-// hooks/ProductDetails/getProductDetails.ts
-
 import axios from 'axios';
-import { ProductDetailResponse } from './interfaces/useProductDetails.interface';
+import { ProductDetailResponse } from './interfaces/getProductDetails.interface';
 
 const getProductDetails = async (
   productId: string

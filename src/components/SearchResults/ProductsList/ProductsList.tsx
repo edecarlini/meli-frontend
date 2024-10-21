@@ -1,9 +1,10 @@
+'use client';
+
 import Image from 'next/image';
+import Link from 'next/link';
+import Price from '../../Price/Price';
 import { IProductList } from './interfaces/ProductsList.interface';
 import styles from './ProductsList.module.css';
-import Price from '../../Price/Price';
-import Link from 'next/link';
-import useProductList from '@/hooks/ProductList/useProductList';
 
 const ProductsList = ({
   id,
@@ -12,14 +13,17 @@ const ProductsList = ({
   price,
   free_shipping,
   city,
+  handleSelectProduct,
 }: IProductList) => {
-  const { handleSelectProduct } = useProductList();
+  const onClick = () => {
+    handleSelectProduct(id, title, free_shipping);
+  };
+
   return (
     <Link
       href={`/items/${id}`}
-      key={id}
       className={styles['result-product']}
-      onClick={() => handleSelectProduct(id, title, free_shipping)}
+      onClick={onClick}
     >
       <Image
         src={picture}

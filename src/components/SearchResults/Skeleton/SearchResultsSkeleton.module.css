@@ -1,3 +1,11 @@
+.skeleton-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 16px 0;
+  border-radius: 4px;
+  gap: 16px;
+}
+
 .skeleton-product {
   display: flex;
   flex-direction: row;
@@ -43,7 +51,7 @@
 
 .skeleton-location-container {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   width: 200px;
 }
 

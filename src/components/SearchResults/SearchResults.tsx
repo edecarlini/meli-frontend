@@ -1,29 +1,50 @@
 'use client';
 
-import useProductList from '@/hooks/ProductList/useProductList';
+import { Product } from '@/hooks/ProductList/interfaces/useProductList.interface';
 import { Breadcrumb } from '../Breadcrumb/Breadcrumb';
 import ProductsList from './ProductsList/ProductsList';
 import styles from './SearchResults.module.css';
 
-const SearchResults = () => {
-  const { products, categories } = useProductList();
+export interface SearchResultsProps {
+  products: Product[];
+  categories: string[];
+}
+
+const SearchResults: React.FC<SearchResultsProps> = ({
+  products,
+  categories,
+}) => {
+  const handleSelectProduct = (
+    productId: string,
+    productTitle: string,
+    productFreeShipping: boolean
+  ) => {
+    if (productId) {
+      document.cookie = `productTitle=${encodeURIComponent(
+        productTitle
+      )}; path=/; max-age=3600; SameSite=Lax; Secure`;
+      document.cookie = `productFreeShipping=${productFreeShipping}; path=/; max-age=3600; SameSite=Lax; Secure`;
+    }
+  };
 
   return (
     <div className={styles['results-products-container']}>
       <>
         <Breadcrumb path={categories} />
-        {products?.map((product, index) => (
-          <ProductsList
-            id={product?.id}
-            picture={product?.picture}
-            title={product?.title}
-            price={product?.price}
-            free_shipping={product?.free_shipping}
-            city={product?.location?.address?.city || ''}
-            // handleSelectProduct={handleSelectProduct}
-            key={`${product?.id}_${index}`}
-          />
-        ))}
+        {products?.map(
+          ({ id, picture, title, price, free_shipping, location }, index) => (
+            <ProductsList
+              id={id}
+              picture={picture}
+              title={title}
+              price={price}
+              free_shipping={free_shipping}
+              city={location?.address?.city || ''}
+              handleSelectProduct={handleSelectProduct}
+              key={`${id}_${index}`}
+            />
+          )
+        )}
       </>
     </div>
   );

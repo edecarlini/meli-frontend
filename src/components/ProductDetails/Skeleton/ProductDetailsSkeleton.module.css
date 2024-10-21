@@ -1,4 +1,11 @@
 .product-details-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.product-details-skeleton-container {
   display: grid;
   grid-template-columns: minmax(200px, 680px) auto;
   gap: 16px;

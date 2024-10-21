@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import Price from '../../Price/Price';
 import Button from '../../Button/Button';
@@ -38,7 +39,7 @@ const ProductHeader = ({
         <Button
           appearence='primary'
           size='lg'
-          onClick={() => console.log('Comprar')}
+          onClick={() => console.info(`Producto: ${title}`)}
         >
           Comprar
         </Button>

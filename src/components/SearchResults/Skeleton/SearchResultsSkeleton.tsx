@@ -1,3 +1,4 @@
+import BreadcrumbSkeleton from '@/components/Breadcrumb/Skeleton/BreadcrumbSkeleton';
 import styles from './SearchResultsSkeleton.module.css';
 
 type SearchResultsSkeletonProps = {
@@ -5,7 +6,8 @@ type SearchResultsSkeletonProps = {
 };
 
 const SearchResultsSkeleton = ({ count }: SearchResultsSkeletonProps) => (
-  <>
+  <div className={styles['skeleton-container']}>
+    <BreadcrumbSkeleton />
     {Array.from({ length: count }).map((_, index) => (
       <div key={index} className={styles['skeleton-product']}>
         <div className={styles['skeleton-image']} />
@@ -21,7 +23,7 @@ const SearchResultsSkeleton = ({ count }: SearchResultsSkeletonProps) => (
         </div>
       </div>
     ))}
-  </>
+  </div>
 );
 
 export default SearchResultsSkeleton;

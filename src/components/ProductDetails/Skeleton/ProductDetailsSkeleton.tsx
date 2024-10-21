@@ -1,8 +1,10 @@
+import BreadcrumbSkeleton from '@/components/Breadcrumb/Skeleton/BreadcrumbSkeleton';
 import styles from './ProductDetailsSkeleton.module.css';
 
 const ProductDetailsSkeleton = () => {
   return (
     <div className={styles['product-details-skeleton']}>
+      <BreadcrumbSkeleton />
       <div className={styles['product-details-skeleton-container']}>
         <div className={styles['product-details-skeleton-image']} />
         <div className={styles['product-details-skeleton-info']}>
